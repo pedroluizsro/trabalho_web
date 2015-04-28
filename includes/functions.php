@@ -53,7 +53,4 @@ function trocarStatus($status,$conexao){
 	$sqlQuery = mysql_query($sql, $GLOBALS['conexao']);
 }
 
-#function mataProcesso(){
-#}
-
 ?>
