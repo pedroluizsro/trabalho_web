@@ -5,6 +5,8 @@ function helloWorld($tempo){
 	return $GLOBALS['tempo'];
 }
 
+
+echo "TESTANDOOOO";
 echo helloWorld($tempo);
 
 ?>
