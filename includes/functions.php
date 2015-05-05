@@ -46,3 +46,13 @@ function trocarStatus($status,$conexao){
     $sqlQuery = mysql_query($sql, $GLOBALS['conexao']);
 }
 
+function verTime($time,$conexao){
+    $sql = "SELECT `time` FROM `Configuracao` LIMIT 1";
+    $coluna = "time";
+
+    $GLOBALS['time'] = queryExecuta($sql,$coluna);
+
+    return intval($GLOBALS['time']);
+}
+
+function trocarTi

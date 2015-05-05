@@ -23,8 +23,8 @@
 	
 	<br>
 
-	<form>
-		Tempo entre cada scan: <input type="text" name="time" maxlength="1" size="2"> Segundos<br>
+	<form action="time.php" method="post">
+		Tempo entre cada scan: <input type="text" name="time" value="<?php echo verTime($time,$conexao); ?>" maxlength="1" size="2"> Segundos<br>
 		<input type="submit" value="Salvar">
 	</form>
 </body>

@@ -12,3 +12,4 @@ $idProcessoTop = null;
 $ocorrencias = null;
 $ativo = null;
 $conexao = null;
+$time = null;
