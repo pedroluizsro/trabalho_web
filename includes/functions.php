@@ -6,7 +6,19 @@
  * Time: 20:12
  */
 
+include_once("globals.php");
+include_once("conexao.abre.php");
 
+/**
+ * @param $sql
+ * @param $coluna
+ * @return mixed
+ */
+function queryExecuta($sql,$coluna){
+    $sqlQuery = mysql_query($sql, $GLOBALS['conexao']);
+    $sqlExecuta = mysql_fetch_array($sqlQuery);
+    return $sqlExecuta[$coluna];
+}
 
 /**
  * @param $ativo
@@ -33,3 +45,4 @@ function trocarStatus($status,$conexao){
     $sql = "UPDATE `Configuracao` SET `ativo`=$status WHERE 1";
     $sqlQuery = mysql_query($sql, $GLOBALS['conexao']);
 }
+

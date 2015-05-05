@@ -1,7 +1,14 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: pedro
+ * Date: 05/05/15
+ * Time: 20:27
+ */
+
 header('Content-Type: text/html; charset=utf-8');
 
-### DADOS DE CONEXÃƒO AO MYSQL ###
+### DADOS DE CONEXÃO AO MYSQL ###
 	$host = "localhost";
 	$usuario = "acps";
 	$senha = "1@asdfg";
@@ -9,9 +16,9 @@ header('Content-Type: text/html; charset=utf-8');
 #################################
 
 
-### FUNÃ‡Ã•ES DE CONEXÃƒO ###
-	//ConexÃ£o ao banco de dados;
+### FUNÇÕES DE CONEXÃO ###
+	//Conexão ao banco de dados;
 	$conexao = mysql_connect($host, $usuario, $senha) or print(mysql_error());
-	//ConexÃ£o Ã  base de dados;
+	//Conexão à base de dados;
 	mysql_select_db($base, $conexao) or print(mysql_error());
 #########################`
