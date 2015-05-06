@@ -55,4 +55,7 @@ function verTime($time,$conexao){
     return intval($GLOBALS['time']);
 }
 
-function trocarTi
+function trocarTime($time,$conexao){
+    $sql = "UPDATE `Configuracao` SET `time`=$time WHERE 1";
+    $sqlQuery = mysql_query($sql, $GLOBALS['conexao']);
+}
