@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - acps@localhost" uuid="411f6cd2-a0c2-4b78-bff4-ded7ba87ed0f">
+    <database-info product="MySQL" version="5.6.24-0ubuntu2" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="acps"/>
+    <table name="Configuracao" schema="" catalog="acps" type="TABLE">
+      <column name="id_conf" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="qtd_processo" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="time" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ativo" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_conf"/>
+      <exported-key name="Servidor_ibfk_1" table="Servidor" schema="" catalog="acps" columns="id_conf"/>
+    </table>
+    <table name="Excecao" schema="" catalog="acps" type="TABLE">
+      <column name="id_excecao" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Excecaocol" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_excecao"/>
+    </table>
+    <table name="Relatorio_ocorrencia" schema="" catalog="acps" type="TABLE">
+      <column name="id_ocorrencia" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome_processo" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="qtd_ocorrencia" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_ocorrencia"/>
+    </table>
+    <table name="Servidor" schema="" catalog="acps" type="TABLE">
+      <column name="id_server" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="id_conf" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="load_server" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="uso_memoria" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="uptime" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="data" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_server"/>
+      <foreign-key name="Servidor_ibfk_1" columns="id_conf" ref-table="Configuracao" ref-schema="" ref-catalog="acps" ref-columns="id_conf" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="relatorio_acao" schema="" catalog="acps" type="TABLE">
+      <column name="id_acao" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="alvo_processo" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="tipo_acao" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="data" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="hora" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_acao"/>
+    </table>
+  </data-source>
+</component>
