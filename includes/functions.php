@@ -10,6 +10,7 @@ include_once("globals.php");
 include_once("conexao.abre.php");
 
 /**
+ * Executa uma Query e retorna uma coluna.
  * @param $sql
  * @param $coluna
  * @return mixed
@@ -21,6 +22,7 @@ function queryExecuta($sql,$coluna){
 }
 
 /**
+ * Busca o status atual da aplicação(Ligado ou Desligado) do banco de dados.
  * @param $ativo
  * @param $conexao
  * @return string
@@ -38,6 +40,7 @@ function verStatus($ativo,$conexao){
 }
 
 /**
+ * Altera o Status do banco.
  * @param $status
  * @param $conexao
  */
@@ -46,20 +49,27 @@ function trocarStatus($status,$conexao){
     $sqlQuery = mysql_query($sql, $GLOBALS['conexao']);
 }
 
+
+/**
+ * Ver tempo atual de Sleep da aplicação.
+ * @param $time
+ * @param $conexao
+ * @return int
+ */
 function verTime($time,$conexao){
     $sql = "SELECT `time` FROM `Configuracao` LIMIT 1";
     $coluna = "time";
-
     $GLOBALS['time'] = queryExecuta($sql,$coluna);
 
     return intval($GLOBALS['time']);
 }
 
+/**
+ * Alterar o tempo de Sleep da aplicação.
+ * @param $time
+ * @param $conexao
+ */
 function trocarTime($time,$conexao){
     $sql = "UPDATE `Configuracao` SET `time`=$time WHERE 1";
     $sqlQuery = mysql_query($sql, $GLOBALS['conexao']);
-}
-
-function cadastro(){
-
 }
