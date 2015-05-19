@@ -15,7 +15,6 @@ function selectExecuta($sql,$coluna){
 	return $sqlExecuta[$coluna];
 }
 
-
 /**
  * Executa uma query qualquer sem retorno.
  * @param $sql
@@ -49,14 +48,23 @@ function pegaLoad($load){
 	return floatval($GLOBALS['load']);
 }
 
+
 /**
- * Pega o ID do processo que mais está utilizando processamento.
- * @param $idProcessoTop
+ * Pega ID processo TOP.
  * @return int
  */
-function pegaProcessoTop($idProcessoTop){
-	$GLOBALS['idProcessoTop'] = shell_exec("ps -eo pid --sort pcpu | tail -1");
-	return intval($GLOBALS['idProcessoTop']);
+function pegaProcessoTop(){
+	$idProcessoTop = shell_exec("ps -eo pid --sort pcpu | tail -1");
+	return intval($idProcessoTop);
+}
+
+/**
+ *
+ * @return string
+ */
+function pegaNomeProcessoTop(){
+    $nomeProcessoTop = shell_exec("ps -eo cmd --sort pcpu | tail -1");
+    return $nomeProcessoTop;
 }
 
 /**
@@ -73,7 +81,6 @@ function programaAtivo($ativo,$conexao){
 	return intval($GLOBALS['ativo']);
 }
 
-
 /**
  * Cria um relatório de ocorrência.
  * @param $nome_processo
@@ -82,8 +89,8 @@ function programaAtivo($ativo,$conexao){
 function relatorioOcorrencia($nome_processo, $conexao){
     $validacao = selectExecuta($sql = "SELECT `nome_processo` FROM `Relatorio_ocorrencia` WHERE `nome_processo` = '$nome_processo'", $coluna = "nome_processo");
     if($nome_processo == $validacao){
-        selectExecuta($sql = "UPDATE `Relatorio_ocorrencia` SET `qtd_ocorrencia`= `qtd_ocorrencia`+1 WHERE `nome_processo` = '$nome_processo'",$conexao);
+        queryExecuta($sql = "UPDATE `Relatorio_ocorrencia` SET `qtd_ocorrencia`= `qtd_ocorrencia`+1 WHERE `nome_processo` = '$nome_processo'",$conexao);
     } else {
-        selectExecuta($sql = "INSERT INTO `Relatorio_ocorrencia` (`nome_processo`, `qtd_ocorrencia`) VALUE ('$nome_processo',1);",$conexao);
+        queryExecuta($sql = "INSERT INTO `Relatorio_ocorrencia` (`nome_processo`, `qtd_ocorrencia`) VALUE ('$nome_processo',1);",$conexao);
     }
 }
