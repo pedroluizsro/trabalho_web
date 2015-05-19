@@ -8,7 +8,7 @@
 
 header('Content-Type: text/html; charset=utf-8');
 
-### DADOS DE CONEX√O AO MYSQL ###
+### DADOS DE CONEX√ÉO AO MYSQL ###
 	$host = "localhost";
 	$usuario = "acps";
 	$senha = "1@asdfg";
@@ -16,9 +16,9 @@ header('Content-Type: text/html; charset=utf-8');
 #################################
 
 
-### FUN«’ES DE CONEX√O ###
-	//Conex„o ao banco de dados;
+### FUN√á√ïES DE CONEX√ÉO ###
+	//Conex√£o ao banco de dados;
 	$conexao = mysql_connect($host, $usuario, $senha) or print(mysql_error());
-	//Conex„o ‡ base de dados;
+	//Conex√£o √† base de dados;
 	mysql_select_db($base, $conexao) or print(mysql_error());
 #########################`

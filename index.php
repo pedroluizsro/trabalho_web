@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Página de configuração</title>
     <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
     <script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
@@ -41,7 +41,7 @@
                 </form>
             </div>
             <div id="tabs-2">
-                <p>sgsnegkjsngk</p>
+                <p><?php echo relatorioOcorrencia($nome_processo = "teste2",$conexao); ?></p>
             </div>
             <div id="tabs-3">
                 <a>segnsgjkesgnsekjgsngk</a>

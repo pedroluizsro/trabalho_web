@@ -10,19 +10,27 @@ include_once("globals.php");
 include_once("conexao.abre.php");
 
 /**
- * Executa uma Query e retorna uma coluna.
+ * Executa uma Query(SELECT) e retorna uma coluna.
  * @param $sql
  * @param $coluna
  * @return mixed
  */
-function queryExecuta($sql,$coluna){
+function selectExecuta($sql,$coluna){
     $sqlQuery = mysql_query($sql, $GLOBALS['conexao']);
     $sqlExecuta = mysql_fetch_array($sqlQuery);
     return $sqlExecuta[$coluna];
 }
 
 /**
- * Busca o status atual da aplicação(Ligado ou Desligado) do banco de dados.
+ * Executa uma query qualquer sem retorno.
+ * @param $sql
+ */
+function queryExecuta($sql){
+    mysql_query($sql, $GLOBALS['conexao']);
+}
+
+/**
+ * Busca o status atual da aplicaÃ§Ã£o(Ligado ou Desligado) do banco de dados.
  * @param $ativo
  * @param $conexao
  * @return string
@@ -31,7 +39,7 @@ function verStatus($ativo,$conexao){
     $sql = "SELECT `ativo` FROM `Configuracao` LIMIT 1";
     $coluna = "ativo";
 
-    $GLOBALS['ativo'] = queryExecuta($sql,$coluna);
+    $GLOBALS['ativo'] = selectExecuta($sql,$coluna);
     if (intval($GLOBALS['ativo']) == 1) {
         return "Ligado";
     }else{
@@ -51,7 +59,7 @@ function trocarStatus($status,$conexao){
 
 
 /**
- * Ver tempo atual de Sleep da aplicação.
+ * Ver tempo atual de Sleep da aplicaÃ§Ã£o.
  * @param $time
  * @param $conexao
  * @return int
@@ -59,13 +67,13 @@ function trocarStatus($status,$conexao){
 function verTime($time,$conexao){
     $sql = "SELECT `time` FROM `Configuracao` LIMIT 1";
     $coluna = "time";
-    $GLOBALS['time'] = queryExecuta($sql,$coluna);
+    $GLOBALS['time'] = selectExecuta($sql,$coluna);
 
     return intval($GLOBALS['time']);
 }
 
 /**
- * Alterar o tempo de Sleep da aplicação.
+ * Alterar o tempo de Sleep da aplicaÃ§Ã£o.
  * @param $time
  * @param $conexao
  */

@@ -3,31 +3,31 @@ trabalho_web
 
 ACPS(Aumatic Control Proccess System)
 
-Sistema que controlará a utilização de recursos do servidor. Quando o servidor tiver excedido um nível prejudicial de seus recursos, o sistema buscará o processo ou serviço no qual está prejudicando o servidor e irá recicla-lo ou finaliza-lo. A forma como foi realizado a ação contra o processo será mantida em relatórios no banco de dados.
+Sistema que controlarÃ¡ a utilizaÃ§Ã£o de recursos do servidor. Quando o servidor tiver excedido um nÃ­vel prejudicial de seus recursos, o sistema buscarÃ¡ o processo ou serviÃ§o no qual estÃ¡ prejudicando o servidor e irÃ¡ recicla-lo ou finaliza-lo. A forma como foi realizado a aÃ§Ã£o contra o processo serÃ¡ mantida em relatÃ³rios no banco de dados.
 
 
-- Relatórios de Ação
-	- Identificação da Ação; # ID
-	- Tipo de ação; # Processo finalizado ou reiniciado;
-	- Hora da ação;	# Horário em que ocorreu a ação;
-	- Alvo da ação; # Processo que foi finalizado ou reiniciado;
+- RelatÃ³rios de AÃ§Ã£o
+	- IdentificaÃ§Ã£o da AÃ§Ã£o; # ID
+	- Tipo de aÃ§Ã£o; # Processo finalizado ou reiniciado;
+	- Hora da aÃ§Ã£o;	# HorÃ¡rio em que ocorreu a aÃ§Ã£o;
+	- Alvo da aÃ§Ã£o; # Processo que foi finalizado ou reiniciado;
 
-- Relatórios de Ocorrências
-	- Identificação da ocorrências;
+- RelatÃ³rios de OcorrÃªncias
+	- IdentificaÃ§Ã£o da ocorrÃªncias;
 	- Nome do processo;
-	- Quantidade de ocorrências;
+	- Quantidade de ocorrÃªncias;
 
-- Exceções
-	- Identificação da exceção;
+- ExceÃ§Ãµes
+	- IdentificaÃ§Ã£o da exceÃ§Ã£o;
 	- Nome do Processo;
 
 - Servidor
 	- Carga do servidor;
-	- Uso de memória;
+	- Uso de memÃ³ria;
 	- Uptime;
 
 
-Exemplificação:
+ExemplificaÃ§Ã£o:
 
 while(true){
 	sleep(20); // Processo parado;
@@ -39,4 +39,4 @@ while(true){
 		//
 }
 
-*Adicionar exceções através das ocorrências;
+*Adicionar exceÃ§Ãµes atravÃ©s das ocorrÃªncias;
