@@ -17,7 +17,7 @@
     </table>
     <table name="Excecao" schema="" catalog="acps" type="TABLE">
       <column name="id_excecao" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="Excecaocol" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="nome_processo" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id_excecao"/>
     </table>
     <table name="Relatorio_ocorrencia" schema="" catalog="acps" type="TABLE">

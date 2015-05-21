@@ -44,7 +44,7 @@
                 <p><?php echo relatorioOcorrencia($nome_processo = "teste2",$conexao); ?></p>
             </div>
             <div id="tabs-3">
-                <a>segnsgjkesgnsekjgsngk</a>
+                <p><?php echo comparaExcecao(); ?></p>
             </div>
 
             <br>

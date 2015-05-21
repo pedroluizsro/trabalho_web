@@ -94,3 +94,14 @@ function relatorioOcorrencia($nome_processo, $conexao){
         queryExecuta($sql = "INSERT INTO `Relatorio_ocorrencia` (`nome_processo`, `qtd_ocorrencia`) VALUE ('$nome_processo',1);",$conexao);
     }
 }
+
+function comparaExcecao($nome_processo, $conexao){
+    $excecao = selectExecuta($sql = "SELECT `nome_processo` FROM `Excecao` WHERE `nome_processo` = '$nome_processo'", $coluna = "nome_processo");
+    var_dump($excecao);
+
+    if($nome_processo == $excecao){
+        return "É igual";
+    } else {
+        return "Não é igual";
+    }
+}
