@@ -97,11 +97,10 @@ function relatorioOcorrencia($nome_processo, $conexao){
 
 function comparaExcecao($nome_processo, $conexao){
     $excecao = selectExecuta($sql = "SELECT `nome_processo` FROM `Excecao` WHERE `nome_processo` = '$nome_processo'", $coluna = "nome_processo");
-    var_dump($excecao);
 
     if($nome_processo == $excecao){
-        return "É igual";
+        return 1;
     } else {
-        return "Não é igual";
+        return 0;
     }
 }

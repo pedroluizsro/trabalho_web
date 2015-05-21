@@ -81,14 +81,3 @@ function trocarTime($time,$conexao){
     $sql = "UPDATE `Configuracao` SET `time`=$time WHERE 1";
     $sqlQuery = mysql_query($sql, $GLOBALS['conexao']);
 }
-
-function comparaExcecao($nome_processo, $conexao){
-    $excecao = selectExecuta($sql = "SELECT `nome_processo` FROM `Excecao` WHERE `nome_processo` = '$nome_processo'", $coluna = "nome_processo");
-    echo $nome_processo;
-    echo $excecao;
-    if($nome_processo == $excecao){
-        return "É igual";
-    } else {
-        return "Não é igual";
-    }
-}
