@@ -111,6 +111,11 @@ function comparaExcecao($nome_processo, $conexao){
     }
 }
 
+/**
+ * Finaliza o processo e guarda relatório na base de dados.
+ * @param $pid
+ * @param $conexao
+ */
 function finalizaProcesso($pid, $conexao){
     shell_exec("kill -9 $pid");
     queryExecuta($sql = "INSERT INTO `relatorio_acao` (`alvo_processo`, `tipo_acao`, `data`) VALUES ($pid, 'Finalizado', NOW())");
