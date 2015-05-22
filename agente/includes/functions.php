@@ -50,7 +50,7 @@ function pegaLoad($load){
 
 
 /**
- * Pega ID processo TOP.
+ * Pega ID do processo que mais utiliza recurso.
  * @return int
  */
 function pegaProcessoTop(){
@@ -59,7 +59,7 @@ function pegaProcessoTop(){
 }
 
 /**
- *
+ * Pega o nome do processo que mais utiliza recurso.
  * @return string
  */
 function pegaNomeProcessoTop(){
@@ -95,6 +95,12 @@ function relatorioOcorrencia($nome_processo, $conexao){
     }
 }
 
+/**
+ * Verifica se está nas exceções e retorna 1 para sim e 0 para não.
+ * @param $nome_processo
+ * @param $conexao
+ * @return int
+ */
 function comparaExcecao($nome_processo, $conexao){
     $excecao = selectExecuta($sql = "SELECT `nome_processo` FROM `Excecao` WHERE `nome_processo` = '$nome_processo'", $coluna = "nome_processo");
 
@@ -103,4 +109,10 @@ function comparaExcecao($nome_processo, $conexao){
     } else {
         return 0;
     }
+}
+
+function finalizaProcesso($pid, $conexao){
+    shell_exec("kill -9 $pid");
+    queryExecuta($sql = "INSERT INTO `relatorio_acao` (`alvo_processo`, `tipo_acao`, `data`) VALUES ($pid, 'Finalizado', NOW())");
+    return;
 }
